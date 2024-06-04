@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -28,14 +30,14 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
 
-        $request->validate([
-            'progetto' => 'required|string',
-            'descrizione' => 'required|max:2000',
-            'link' =>'required|string'
-        ]);
+        // $request->validate([
+        //     'progetto' => 'required|string',
+        //     'descrizione' => 'required|max:2000',
+        //     'link' =>'required|string'
+        // ]);
 
         $form_data = $request->all();
         $new_project = Project::create($form_data);
@@ -61,14 +63,14 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
 
-        $request->validate([
-            'progetto' => 'required|string',
-            'descrizione' => 'required|max:2000',
-            'link' =>'required|string'
-        ]);
+        // $request->validate([
+        //     'progetto' => 'required|string',
+        //     'descrizione' => 'required|max:2000',
+        //     'link' =>'required|string'
+        // ]);
         $form_data = $request->all();
         $project->fill($form_data);
         $project->save();
