@@ -8,6 +8,8 @@
       <th>Descrizione</th>
       <th>Link alla cartella git-hub</th>
       <th></th>
+    
+
     </tr>
   </thead>
   <tbody>
@@ -18,8 +20,10 @@
         <td>{{ $project->descrizione }}</td>
         <td><a href="{{ $project->link }}">Link</a></td>
         <td><a href="{{ route('admin.projects.show', $project) }}">Mostra</a></td>
+      </tr>
+        @endforeach
 
       </table>
-    @endforeach
+
 
 @endsection
