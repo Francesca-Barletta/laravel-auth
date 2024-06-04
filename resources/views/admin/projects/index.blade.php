@@ -9,6 +9,9 @@
       <th>Link alla cartella git-hub</th>
       <th></th>
       <th></th>
+      <th></th>
+
+      
 
     
 
@@ -23,6 +26,15 @@
         <td><a href="{{ $project->link }}">Link</a></td>
         <td><a href="{{ route('admin.projects.show', $project) }}">Mostra</a></td>
         <td><a href="{{ route('admin.projects.edit', $project) }}">Modifica</a></td>
+        <td>
+          <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+
+            <button class="btn btn-link link-danger">Elimina</button>
+            @csrf
+            @method('DELETE')
+          
+          </form>
+        </td>
 
       </tr>
         @endforeach
